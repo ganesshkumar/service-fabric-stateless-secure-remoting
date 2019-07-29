@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Section Name="TransportSettings">
+    <Parameter Name="MaxMessageSize" Value="10000000" />
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+    <Parameter Name="CertificateFindValue" Value="fb1a3dfbb66074311a70c5c461b4c807f29f3e2a" />
+    <Parameter Name="CertificateRemoteThumbprints" Value="fb1a3dfbb66074311a70c5c461b4c807f29f3e2a" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    <Parameter Name="CertificateRemoteCommonNames" Value="test-cert" />
+  </Section>
+</Settings>
