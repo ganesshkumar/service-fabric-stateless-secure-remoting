@@ -5,20 +5,61 @@
     <Parameter Name="RemoteService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="WebService_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
     <Parameter Name="WebService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="Remoting.MaxMessageSize" DefaultValue="" />
+    <Parameter Name="Remoting.SecurityCredentialsType" DefaultValue="" />
+    <Parameter Name="Remoting.CertificateFindType" DefaultValue="" />
+    <Parameter Name="Remoting.CertificateFindValue" DefaultValue="" />
+    <Parameter Name="Remoting.CertificateRemoteThumbprints" DefaultValue="" />
+    <Parameter Name="Remoting.CertificateStoreLocation" DefaultValue="" />
+    <Parameter Name="Remoting.CertificateStoreName" DefaultValue="" />
+    <Parameter Name="Remoting.CertificateProtectionLevel" DefaultValue="" />
+    <Parameter Name="Remoting.CertificateRemoteCommonNames" DefaultValue="" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="RemoteServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="TransportSettings">
+            <Parameter Name="MaxMessageSize" Value="[Remoting.MaxMessageSize]" />
+            <Parameter Name="SecurityCredentialsType" Value="[Remoting.SecurityCredentialsType]" />
+            <Parameter Name="CertificateFindType" Value="[Remoting.CertificateFindType]" />
+            <Parameter Name="CertificateFindValue" Value="[Remoting.CertificateFindValue]" />
+            <Parameter Name="CertificateRemoteThumbprints" Value="[Remoting.CertificateRemoteThumbprints]" />
+            <Parameter Name="CertificateStoreLocation" Value="[Remoting.CertificateStoreLocation]" />
+            <Parameter Name="CertificateStoreName" Value="[Remoting.CertificateStoreName]" />
+            <Parameter Name="CertificateProtectionLevel" Value="[Remoting.CertificateProtectionLevel]" />
+            <Parameter Name="CertificateRemoteCommonNames" Value="[Remoting.CertificateRemoteCommonNames]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
     <EnvironmentOverrides CodePackageRef="code">
       <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="[RemoteService_ASPNETCORE_ENVIRONMENT]" />
     </EnvironmentOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="WebServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="TransportSettings">
+            <Parameter Name="MaxMessageSize" Value="[Remoting.MaxMessageSize]" />
+            <Parameter Name="SecurityCredentialsType" Value="[Remoting.SecurityCredentialsType]" />
+            <Parameter Name="CertificateFindType" Value="[Remoting.CertificateFindType]" />
+            <Parameter Name="CertificateFindValue" Value="[Remoting.CertificateFindValue]" />
+            <Parameter Name="CertificateRemoteThumbprints" Value="[Remoting.CertificateRemoteThumbprints]" />
+            <Parameter Name="CertificateStoreLocation" Value="[Remoting.CertificateStoreLocation]" />
+            <Parameter Name="CertificateStoreName" Value="[Remoting.CertificateStoreName]" />
+            <Parameter Name="CertificateProtectionLevel" Value="[Remoting.CertificateProtectionLevel]" />
+            <Parameter Name="CertificateRemoteCommonNames" Value="[Remoting.CertificateRemoteCommonNames]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
     <EnvironmentOverrides CodePackageRef="code">
       <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="[WebService_ASPNETCORE_ENVIRONMENT]" />
     </EnvironmentOverrides>
